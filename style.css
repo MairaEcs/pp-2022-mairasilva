@@ -30,6 +30,7 @@ body{
     
 }
 
+/*@media (min-width: 991px) {*/
 .cabecalho{
     /*property duration timing-function delay*/
     transition: all 0.3s ease;
@@ -91,7 +92,7 @@ body{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-left: 3%;
+    width: 100%;
     gap: 32px;
     margin-top: 131px;
     /*border: 1px solid black;
@@ -193,7 +194,6 @@ body{
 .conteudo-categorias2{
     display: flex;
     width: 90vw;
-    margin: 0 auto;
     padding-top: 3%;
 }
 
