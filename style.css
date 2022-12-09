@@ -146,11 +146,11 @@ body{
     padding-top: 5%;
     border: 1px solid black;
     border-radius: 5px;
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(255, 255, 255);
     
 }
 
-#sobre, #categorias, #danos{
+#sobre, #categorias, #danos, #descarte{
     /*background-color: #E8E2E1;*/
     padding-top: 15px;
     height: 100vh;
@@ -160,17 +160,6 @@ body{
     font-size: 18px;
     color: black;
     
-}
-
-#descarte{
-    padding-top: 15px;
-    height: fit-content;
-
-    font-family: 'Montserrat';
-    font-weight: 400;
-    font-size: 18px;
-    color: black;
-
 }
 
 .conteudo-sobre1, .conteudo-sobre2, .conteudo-categorias1, .conteudo-danos1, .conteudo-danos2, .conteudo-descarte{
@@ -183,11 +172,11 @@ body{
     margin-top: 71px;
 }
 
-.conteudo-sobre-titulo1, .conteudo-sobre-titulo2, .conteudo-categorias-titulo, .conteudo-danos-titulo1, .conteudo-danos-titulo2, .conteudo-descarte-titulo{
+h4{
     font-size: 18px;
 }
 
-.conteudo-sobre-texto1, .conteudo-sobre-texto2, .conteudo-categorias-texto, .conteudo-danos-texto1{
+p{
     font-size: 24px;
 }
 
@@ -491,6 +480,7 @@ button {
     color: #000;
     background-color: #eeeeeee5;
 }
+
 /*.btn-16:after {
     position: absolute;
     content: "";
@@ -523,3 +513,126 @@ button {
 /*.saiba-mais{
     border: 1px solid black;
 }*/
+
+
+/*CADASTRO*/
+
+h1 {
+	font-weight: bold;
+	margin: 0;
+}
+
+
+/*p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 20px 0 30px;
+}*/
+
+/*span {
+	font-size: 12px;
+}*/
+
+/*a {
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}*/
+
+#enviar {
+	border-radius: 20px;
+	border: 1px solid rgb(53, 53, 53);
+	background-color: rgb(53, 53, 53);
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+    cursor: pointer;
+}
+
+form {
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 85%;
+	text-align: center;
+
+    
+    
+}
+
+input, select {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+}
+
+#descarte {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    padding-top: 15px;
+    
+  
+    /*border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+            0 10px 10px rgba(0,0,0,0.22);
+
+    position: relative;
+    overflow: hidden;*/
+    
+
+}
+
+.form-container {
+	/*position: absolute;*/
+	top: 0;
+	height: 100%;
+	/*transition: all 0.3s ease-in-out;*/
+    
+    margin-top: 71px;
+}
+
+.conteudo-descarte-mapa { 
+	left: 0;
+	width: 60%;
+    
+	/*z-index: 2;*/
+}
+
+/*#descarte.right-panel-active .conteudo-descarte-mapa { 
+	transform: translateX(100%);
+}*/
+
+.conteudo-descarte-cadastro { 
+    margin-right: 3%;
+	/*left: 0;*/
+	width: 40%;
+    height: 100%;
+	/*opacity: 0;*/
+	/*z-index: 1;*/
+    /*border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+            0 10px 10px rgba(0,0,0,0.22);*/
+
+}
+
+.inf-cadastro{
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 15px 0;
+}
+

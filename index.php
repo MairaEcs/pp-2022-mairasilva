@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,25 +18,94 @@
         /*mapa*/
         html, body{
             height: 100%;
+            /*margin: 0;
+            padding: 0;*/
+        }
+
+        /*.conteudo-descarte-mapa, #descarte{
+            display: flex;
+            height: 100%;
             margin: 0;
             padding: 0;
+
+
+            font-family: 'Montserrat';
+            font-weight: 400;
+            font-size: 18px;
+            color: black;
         }
+
+        .conteudo-descarte-mapa1{
+            width: 60%;
+
+            margin-left: 3%;
+        }
+
+        .conteudo-descarte-mapa2{
+            width: 40%;
+            background-color: rgb(0, 102, 255);
+
+            margin-right: 3%;
+        }*/
 
         /*h2{
             text-align: center;
         }*/
 
+        #descarte h4{
+            margin-left: 5%;
+        }
+
         #map{
-            width: 65vw;
+            margin-top: 1%;
+            width: 90%;
+            height: 80%;
+            margin-left: 5%;
+            
+            margin-top: 3%;
+
+            /*width: 65vw;
             height: 76%;
             margin-left: 17.5%;
             margin-bottom: 1%;
-            /*width: 80vw;
+            width: 80vw;
             height: 70%;
             margin-left: 9.5%;*/
         }
+        
     </style>
 
+
+    <!-- Autocomplete Endereço -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        var searchInput = 'endereco';
+
+        $(document).ready(function () {
+            var autocomplete;
+            autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
+                types: ['geocode'],
+            });
+
+            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                var near_place = autocomplete.getPlace();
+                document.getElementById('end-lat').value = near_place.geometry.location.lat();
+                document.getElementById('end-lng').value = near_place.geometry.location.lng();
+
+                document.getElementById('latitude_view').innerHTML = near_place.geometry.location.lat();
+                document.getElementById('longitude_view').innerHTML = near_place.geometry.location.lng();
+            });
+        });
+        
+        $(document).on('change', '#'+searchInput, function () {
+            document.getElementById('latitude_view').innerHTML = '';
+            document.getElementById('longitude_view').innerHTML = '';
+        });
+
+    </script>
+    
 </head>
 <body class="index">
     
@@ -75,7 +148,7 @@
         </section>
 
         <section class="conteudo-sobre2">
-            <img class="conteudo-sobre-imagem" src="http://www.relife-poland.com/img/E-waste-Recycling.png" alt="Imagem e-waste">
+            <img class="conteudo-sobre-imagem" src="https://herofutureenergies.com/uploads/blogs/1570685655unnamed.png" alt="Imagem e-waste">
             <!--https://img.freepik.com/icones-gratis/eletronicos_318-972944.jpg?w=996-->
             
         </section>
@@ -188,24 +261,26 @@
     </main>-->
 
     <main class="conteudo" id="descarte">
-        <section class="conteudo-descarte">
-            <!--<h4 class="conteudo-descarte-titulo">CADASTRAR PONTO DE COLETA</h4>
-            <div id="cadastro">
-                <label for="nome-empresa">Empresa:</label>
-                <input type="text" id="nome-empresa" name="nome" placeholder="Digite o nome da empresa">
+        <section class="form-container conteudo-descarte-mapa">
+            <h4>LOCALIZADOR DE PONTOS DE DESCARTE</h4>
+            <div id="map">
+            </div>
+        </section>
 
-                <label for="email-empresa">E-mail:</label>
-                <input type="text" id="email-empresa" name="email" placeholder="Digite o e-mail da empresa">
+        <section class="form-container conteudo-descarte-cadastro">
+            <form action="cadastrar.php" method="post">
+                <h1>Cadastre-se</h1>
+                <p class="inf-cadastro">Caso conheça algum ponto de descarte de e-lixo que não esteja no mapa, cadastre aqui.</p>
+                <input type="text" name="nome" placeholder="Digite o nome do local" required/>
+                <input type="email" name="email" placeholder="Digite o e-mail do local" />
+                <input type="tel" name="telefone" placeholder="Digite o telefone do local" />
+                
+                <input type="text" name="local" id="endereco" placeholder="Digite o endereco completo do local" required/>
+                
+                <input type="hidden" name="lat" id="end-lat">
+                <input type="hidden" name="lng" id="end-lng">
 
-                <label for="telefone-empresa">Telefone:</label>
-                <input type="tel" id="telefone-empresa" name="telefone" placeholder="Digite o telefone da empresa">
-                --><!--<input id="phone" type="text" />-->
-
-                <!--<label for="endereco-empresa">Endereço:</label>
-                <input type="text" id="endereco-empresa" name="endereco" placeholder="Digite o endereço da empresa">
-
-                <label for="estado-empresa">Estado(UF):</label>
-                <select id="estado" name="estado">
+                <!--<select id="estado" name="estado">
                     <option value="AC">Escolha um estado</option>
                     <option value="AC">Acre</option>
                     <option value="AL">Alagoas</option>
@@ -235,21 +310,21 @@
                     <option value="SE">Sergipe</option>
                     <option value="TO">Tocantins</option>
                 </select>
-
-                <button>Cadastrar</button>
-            </div>-->
-            
-            <h4>INDIQUE SUA LOCALIDADE CLICANDO NO MAPA E SAIBA ONDE DESCARTAR SEU E-LIXO</h4>
-            <!--<h2>Indique sua localidade clicando no mapa e saiba onde descartar seu lixo eletrônico</h2>-->
-            
+                
+                <input type="text" name="cidade" placeholder="Cidade" />-->
+          
+                <input type="submit" value="Cadastrar" id="enviar">
+                <?php
+                    if(isset($_SESSION['msgcadastro'])){
+                        echo $_SESSION['msgcadastro'];
+                        unset($_SESSION['msgcadastro']);
+                    }
+                ?>
+            </form>
         </section>
+      
     </main>
 
-    <div id="map">
-        <script 
-            async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4CFLSf6Dxgf9h60iv8LmuiPoLQKvEYBE&libraries=places&callback=initMap">
-        </script>
-    </div>
     <!-------------------------------------------------------------------->
 
     <footer class="rodape">
@@ -259,12 +334,27 @@
             <i class="fa-brands fa-twitter"></i>
         </div>
     </footer>
+
+    <!-- Display latitude and longitude
+    <div class="latlong-view">
+        <p><b>Latitude:</b> <span id="latitude_view"></span></p>
+        <p><b>Longitude:</b> <span id="longitude_view"></span></p>
+    </div> -->
+
+    <script 
+        async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB4CFLSf6Dxgf9h60iv8LmuiPoLQKvEYBE&libraries=places&callback=initMap"
+        defer
+    ></script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="scripts.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="pontos.js"></script> <!--pegar variável de outro arquivo-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+    
 
     
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>

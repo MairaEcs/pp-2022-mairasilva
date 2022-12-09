@@ -35,6 +35,36 @@ markers = [
         "lat": -18.974533,
         "lng": -49.462669
     },
+    //uberlândia
+    {
+        "name": "Codel - Coleta e descarte de eletrônicos",
+        "address": "R. Ituiutaba, 470 - Nossa Sra. Aparecida, Uberlândia - MG, 38400-614",
+        "tels": [" (34) 99672-3880"],
+        "lat": -18.910519,
+        "lng": -48.271201
+    },
+    {
+        "name": "Casas Bahia",
+        "address": "Av. Afonso Pena, 217 - Centro, Uberlândia - MG, 38400-128",
+        "tels": [" "],
+        "lat": -18.921026,
+        "lng": -48.279993
+    },
+    {
+        "name": "Leroy Merlin Uberlândia",
+        "address": "Av. Paulo Gracindo, 15 Loja LSU06 - Morada da Colina, Uberlândia - MG, 38411-145",
+        "tels": [" 0800 020 5376"],
+        "lat": -18.957377,
+        "lng": -48.277775
+    },
+    //Frutal
+    {
+        "name": "Secretaria Municipal do Meio Ambiente",
+        "address": "R. Paul Harris, 101 - Centro, Frutal - MG",
+        "tels": [" (34) 3423-5214"],
+        "lat": -20.02295620,
+        "lng": -48.94242460
+    },
     //bh
     {
         "name": "Casas Bahia",

@@ -1,16 +1,9 @@
-// Menu ---------------------------------------------------
-/*(function (){
-  let cabecalho = document.getElementById("cabecalho");
-  window.addEventListener("scroll", function(){
-    if(window.scrollY > 0){
-      cabecalho.classList.add("cabecalho-fixo");
-      let div = this.document.createElement("div");
-      div.setAttribute("id", "espaco-cabecalho");
-    }else{
-      cabecalho.classList.remove("cabecalho-fixo"); 
-    }
-  });
-})();
+/*
+Instituto Agronelli de Desenvolvimento Social
+instituto@institutoagronelli.org.br
+(34) 3313-0770
+Av. Randolfo Borges Júnior, 1900 - Parque Tecnológico, Uberaba - MG, 38064-300
+Uberaba
 */
 
 // Categorias -----------------------------------------------
@@ -56,6 +49,19 @@ $('.cabecalho a[href^="#"]').on('click', function(e) {
 
 
 
+// CADASTRO
+/*const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('descarte');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});*/
+
 
 
 /* MAPA COMEÇA AQUI */
@@ -63,6 +69,66 @@ $('.cabecalho a[href^="#"]').on('click', function(e) {
 var map;
 var service;
 var myPlace = {lat: -15.7801, lng: -47.9292};
+
+/*var searchInput = 'search_input';
+
+$(document).ready(function () {
+  var autocomplete;
+  autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
+      types: ['geocode'],
+  });
+
+  google.maps.event.addListener(autocomplete, 'place_changed', function () {
+      var near_place = autocomplete.getPlace();
+      document.getElementById('loc_lat').value = near_place.geometry.location.lat();
+      document.getElementById('loc_long').value = near_place.geometry.location.lng();
+
+      document.getElementById('latitude_view').innerHTML = near_place.geometry.location.lat();
+      document.getElementById('longitude_view').innerHTML = near_place.geometry.location.lng();
+  });
+  });
+
+  $(document).on('change', '#'+searchInput, function () {
+  document.getElementById('latitude_input').value = '';
+  document.getElementById('longitude_input').value = '';
+
+  document.getElementById('latitude_view').innerHTML = '';
+  document.getElementById('longitude_view').innerHTML = '';
+});*/
+
+
+/*var addressForm = document.getElementById("endereco");
+
+$(document).ready(function () {
+  var autocomplete;
+  autocomplete = new google.maps.places.Autocomplete(addressForm, {
+    types: ["address"],
+  });
+
+  google.maps.event.addListener(autocomplete, 'placeChanged', function(){
+    var nearPlace = autocomplete.getPlace();
+    var latRes = document.getElementById("end-lat").value;
+    latRes = near_place.geometry.location.lat();
+    var lngRes = document.getElementById("end-lng").value;
+    lngRes = near_place.geometry.location.lng();
+
+    console.log(latRes, lngRes);
+
+  });
+
+})*/
+
+/*function initAutocomplete(){
+  addressForm = document.querySelector("#endereco");
+
+  autocomplete = new google.maps.places.Autocomplete(addressForm, {
+    componentRestrictions: { country: ["us", "ca"] },
+    fields: ["address_components", "geometry"],
+    types: ["address"],
+  });
+  
+  addressForm.focus();
+}*/
 
 function initMap(){
   map = new google.maps.Map(document.getElementById("map"), 
@@ -110,7 +176,7 @@ function initMap(){
       if ( closest == -1 || d < distances[closest] ) {
           closest = i;
       }
-      console.log(markers.length);
+      
       if(d <= 100){
         html += "<b>" + markers[i].name + "</b><br>"+
                 "<p>" + "<b>address: </b>" + markers[i].address + "</p>"+
@@ -150,4 +216,3 @@ function initMap(){
   }
   
 }
-    
